@@ -327,6 +327,40 @@ legend {
   white-space: normal;
 }
 
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  position: fixed;
+  top: 3rem;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  z-index: 11111;
+
+}
+
+.errorContainer>p {
+  padding: 1.2rem;
+  font-style: italic;
+  font-size: 1.3rem;
+  background-color: #ffcc00;
+  color: #1e2024;
+  border-radius: 5px;
+}
+
+.errorContainer {
+  -moz-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 5s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
 @media (max-width: 1200px) {
   legend {
     font-size: calc(1.275rem + 0.3vw);
