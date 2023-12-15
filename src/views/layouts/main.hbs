@@ -35,15 +35,18 @@
                         <li class="nav-item border-right border-secondary">
                             <a class="nav-link text-body small" href="#">Понеделник, Януари 1, 2045</a>
                         </li>
-                        <li class="nav-item border-right border-secondary">
-                            <a class="nav-link text-body small" href="#">Регистрация</a>
-                        </li>
-                        <li class="nav-item border-right border-secondary">
-                            <a class="nav-link text-body small" href="#">Вход</a>
-                        </li>
+                        {{#if user}}
                         <li class="nav-item">
-                            <a class="nav-link text-body small" href="#">Изход</a>
+                            <a class="nav-link text-body small" href="/auth/logout">Изход</a>
                         </li>
+                        {{else}}
+                        <li class="nav-item border-right border-secondary">
+                            <a class="nav-link text-body small" href="/auth/register">Регистрация</a>
+                        </li>
+                        <li class="nav-item border-right border-secondary">
+                            <a class="nav-link text-body small" href="/auth/login">Вход</a>
+                        </li>
+                        {{/if}}
                     </ul>
                 </nav>
             </div>
@@ -128,7 +131,11 @@
         </nav>
     </div>
     <!-- Navbar End -->
-
+    {{#if error}}
+    <div class="errorContainer">
+        <p>{{error}}</p>
+    </div>
+    {{/if}}
     {{{body}}}
 
     <!-- Footer Start -->
@@ -179,7 +186,7 @@
     </div>
     </div>
     <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
-        <p class="m-0 text-center">&copy; <a href="#">Your Site Name</a>. All Rights Reserved.
+        <p class="m-0 text-center">&copy; <a href="#">SPORTHUB</a>&nbsp All Rights Reserved.
 
             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
             Design by <a href="https://htmlcodex.com">HTML Codex</a>
