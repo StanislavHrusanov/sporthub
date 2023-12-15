@@ -1,0 +1,36 @@
+<main id="form-main">
+    <section class="form-view">
+        <h1>Добави статия</h1>
+        <form method="post" action="" class="forms">
+            <div class="input">
+                <label for="type">Вид имот</label>
+                <select name="type" id="type">
+                    <option value="{{article.type}}" hidden="hidden" selected="selected">{{article.type}}</option>
+                    <option value="ФУТБОЛ">ФУТБОЛ</option>
+                    <option value="БАСКЕТБОЛ">БАСКЕТБОЛ</option>
+                    <option value="ВОЛЕЙБОЛ">ВОЛЕЙБОЛ</option>
+                    <option value="ТЕНИС">ТЕНИС</option>
+                    <option value="ЛЕКА АТЛЕТИКА">ЛЕКА АТЛЕТИКА</option>
+                    <option value="МОТОРНИ СПОРТОВЕ">МОТОРНИ СПОРТОВЕ</option>
+                    <option value="БОЙНИ СПОРТОВЕ">БОЙНИ СПОРТОВЕ</option>
+                    <option value="ДРУГИ">ДРУГИ</option>
+                </select>
+            </div>
+            <div class="input">
+                <label for="imageUrl">Основна снимка</label>
+                <input type="text" name="imageUrl" id="imageUrl" value="{{article.imageUrl}}">
+            </div>
+            <div class="input">
+                <label for="title">Заглавие</label>
+                <input type="text" name="title" id="title" value="{{article.title}}">
+            </div>
+            <div class="input">
+                <label for="text">Текст</label>
+                <textarea name="text" id="text" rows="5">{{article.text}}</textarea>
+            </div>
+            <div class="action">
+                <input type="submit" value="Добави"></input>
+            </div>
+        </form>
+    </section>
+</main>

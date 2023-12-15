@@ -11019,6 +11019,13 @@ h6,
   background-color: transparent;
 }
 
+.input textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  border: 2px solid rgb(175, 175, 175);
+}
+
 .input input:focus,
 .input input:valid {
   outline: 0;

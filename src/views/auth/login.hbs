@@ -4,7 +4,7 @@
         <form action="" method="post" class="forms">
             <div class="input">
                 <label for="username">Потребителско име</label>
-                <input type="text" name="username" id="username">
+                <input type="text" name="username" id="username" value="{{userData.username}}">
             </div>
             <div class="input">
                 <label for="password">Парола</label>
@@ -14,7 +14,7 @@
                 <input type="submit" value="Вход"></input>
             </div>
             <div class="no-reg">
-                <p>Нямаш регистрация? <a href="">Регистрирай се!</a> </p>
+                <p>Нямаш регистрация? <a href="/auth/register">Регистрирай се!</a> </p>
             </div>
         </form>
     </section>
