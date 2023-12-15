@@ -4,15 +4,15 @@
         <form action="" method="post" class="forms">
             <div class="input">
                 <label for="username">Потребителско име</label>
-                <input type="text" name="username" id="username">
+                <input type="text" name="username" id="username" value="{{userData.username}}">
             </div>
             <div class="input">
                 <label for="firstName">Име</label>
-                <input type="text" name="firstName" id="firstName">
+                <input type="text" name="firstName" id="firstName" value="{{userData.firstName}}">
             </div>
             <div class="input">
                 <label for="lastName">Фамилия</label>
-                <input type="text" name="lastName" id="lastName">
+                <input type="text" name="lastName" id="lastName" value="{{userData.lastName}}">
             </div>
             <div class="input">
                 <label for="password">Парола</label>
@@ -24,7 +24,7 @@
             </div>
             <div class="input">
                 <label for="email">E-mail</label>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" value="{{userData.email}}">
             </div>
             <div class="action">
                 <input type="submit" value="Регистрация"></input>
