@@ -1,12 +1,13 @@
 <main id="form-main">
     <section class="form-view">
         <h1>Добави статия</h1>
-        <form method="post" action="" class="forms">
+        <form method="post" action="" class="forms" id="addForm">
             <div class="input">
-                <label for="type">Вид имот</label>
-                <select name="type" id="type">
-                    <option value="{{article.type}}" hidden="hidden" selected="selected">{{article.type}}</option>
-                    <option value="ФУТБОЛ">ФУТБОЛ</option>
+                <label for="sport">Спорт</label>
+                <select onchange="selectLeague()" name="sport" id="sport">
+                    <option value="{{article.sport}}" hidden="hidden" selected="selected">{{article.sport}}</option>
+                    <option value="БГ ФУТБОЛ">БГ ФУТБОЛ</option>
+                    <option value="ФУТБОЛ СВЯТ">ФУТБОЛ СВЯТ</option>
                     <option value="БАСКЕТБОЛ">БАСКЕТБОЛ</option>
                     <option value="ВОЛЕЙБОЛ">ВОЛЕЙБОЛ</option>
                     <option value="ТЕНИС">ТЕНИС</option>
@@ -16,7 +17,7 @@
                     <option value="ДРУГИ">ДРУГИ</option>
                 </select>
             </div>
-            <div class="input">
+            <div class="input" id="imageUrlBox">
                 <label for="imageUrl">Основна снимка</label>
                 <input type="text" name="imageUrl" id="imageUrl" value="{{article.imageUrl}}">
             </div>
@@ -34,3 +35,5 @@
         </form>
     </section>
 </main>
+
+<script src="../../../public/js/selectLeague.js" defer></script>
