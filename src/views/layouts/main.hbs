@@ -131,6 +131,11 @@
                         </div>
                     </div>
                     <a href="/articles/addArticle" class="nav-item nav-link">Добави Статия</a>
+                    {{#if user}}
+                    <a href="/auth/logout" class="nav-item nav-link auth">Изход</a>
+                    {{else}}
+                    <a href="/auth/login" class="nav-item nav-link auth">Вход</a>
+                    {{/if}}
                 </div>
                 <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control border-0" placeholder="Търси">

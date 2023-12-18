@@ -361,6 +361,12 @@ legend {
   animation-fill-mode: forwards;
 }
 
+@media (min-width:992px) {
+  .auth {
+    display: none !important;
+  }
+}
+
 @media (max-width: 1200px) {
   legend {
     font-size: calc(1.275rem + 0.3vw);
