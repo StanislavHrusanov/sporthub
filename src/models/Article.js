@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
-    type: {
+    sport: {
         type: String,
         required: true
+    },
+    league: {
+        type: String
     },
     title: {
         type: String,
