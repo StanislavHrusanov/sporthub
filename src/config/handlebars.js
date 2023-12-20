@@ -33,6 +33,29 @@ hbars.handlebars.registerHelper('homePageDate', function () {
     return `${days[day]}, ${months[month]} ${date}, ${year}`;
 });
 
+hbars.handlebars.registerHelper('articleDate', function (createdAt) {
+    const dateOfCreation = new Date(createdAt);
+
+    const months = {
+        Jan: 'Яну',
+        Feb: 'Фев',
+        Mar: 'Мар',
+        Apr: 'Апр',
+        May: 'Май',
+        Jun: 'Юни',
+        Jul: 'Юли',
+        Aug: 'Авг',
+        Sep: 'Сеп',
+        Oct: 'Окт',
+        Nov: 'Ное',
+        Dec: 'Дек'
+    };
+
+    const [day, month, date, year] = dateOfCreation.toDateString().split(' ');
+
+    return `${months[month]} ${date}, ${year}`;
+});
+
 module.exports = (app) => {
     app.engine('hbs', hbs.engine({
         extname: 'hbs'
