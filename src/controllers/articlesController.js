@@ -30,5 +30,175 @@ router.get('/bgFootball', async (req, res) => {
     }
 });
 
+router.get('/worldFootball/England', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Англия').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/Spain', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Испания').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/Italy', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Италия').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/Germany', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Германия').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/France', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Франция').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/ChampionsLeague', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'ШЛ').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/EuropaLeague', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Лига Европа').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/EuropaConferenceLeague', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Лига на конференциите').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/NationalTeams', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Национални отбори').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/worldFootball/OtherLeagues', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Други').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/otherSports/basketball', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('БАСКЕТБОЛ').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/otherSports/volleyball', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('ВОЛЕЙБОЛ').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/otherSports/tennis', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('ТЕНИС').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/otherSports/athletics', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('ЛЕКА АТЛЕТИКА').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/otherSports/motorSports', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('МОТО СПОРТОВЕ').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/otherSports/combatSports', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('БОЙНИ СПОРТОВЕ').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/otherSports/others', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('ДРУГИ').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
 
 module.exports = router;

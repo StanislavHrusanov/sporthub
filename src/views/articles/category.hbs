@@ -5,7 +5,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title">
+                            {{#if articles.0.league}}
+                            <h4 class="m-0 text-uppercase font-weight-bold">
+                                {{articles.0.sport}}&nbsp-&nbsp{{articles.0.league}}</h4>
+                            {{else}}
                             <h4 class="m-0 text-uppercase font-weight-bold">{{articles.0.sport}}</h4>
+                            {{/if}}
                         </div>
                     </div>
                     {{#each articles}}

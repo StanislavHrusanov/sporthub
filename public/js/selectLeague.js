@@ -31,8 +31,8 @@ function selectLeague() {
         optCL.textContent = 'ШЛ';
         optCL.value = 'ШЛ';
         const optLE = document.createElement('option');
-        optLE.textContent = 'ЛЕ';
-        optLE.value = 'ЛЕ';
+        optLE.textContent = 'Лига Европа';
+        optLE.value = 'Лига Европа';
         const optLC = document.createElement('option');
         optLC.textContent = 'Лига на конференциите';
         optLC.value = 'Лига на конференциите';
