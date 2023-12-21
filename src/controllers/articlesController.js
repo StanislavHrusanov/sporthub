@@ -30,6 +30,16 @@ router.get('/bgFootball', async (req, res) => {
     }
 });
 
+router.get('/worldFootball', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('ФУТБОЛ СВЯТ').lean();
+        res.render('articles/worldFootball', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
 router.get('/worldFootball/England', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Англия').lean();
