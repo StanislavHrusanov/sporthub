@@ -20,5 +20,15 @@ router.post('/addArticle', isLoggedIn, async (req, res) => {
     }
 });
 
+router.get('/bgFootball', async (req, res) => {
+    try {
+        const articles = await articlesService.getArticlesOfExactSport('БГ ФУТБОЛ').lean();
+        res.render('articles/category', { articles });
+
+    } catch (error) {
+        res.send(error);
+    }
+});
+
 
 module.exports = router;
