@@ -210,5 +210,16 @@ router.get('/otherSports/others', async (req, res) => {
     }
 });
 
+router.get('/:articleId/details', async (req, res) => {
+    const articleId = req.params.articleId;
+
+    try {
+        const article = await articlesService.getOne(articleId).lean();
+
+        res.render('articles/details', { article });
+    } catch (error) {
+        res.send(error);
+    }
+});
 
 module.exports = router;
