@@ -10,4 +10,13 @@ exports.getArticlesOfExactLeague = (sport, league) => Article.find({ sport: spor
 
 exports.getOne = (articleId) => Article.findById(articleId).populate('author');
 
+exports.addView = async (articleId) => {
+    const article = await this.getOne(articleId);
+    if (!article) {
+        throw ('Not Found!')
+    }
+    article.views += 1;
+    await article.save();
+}
+
 exports.getAll = () => Article.find().populate('author');

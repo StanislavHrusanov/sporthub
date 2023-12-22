@@ -223,6 +223,7 @@ router.get('/:articleId/details', async (req, res) => {
     const articleId = req.params.articleId;
 
     try {
+        await articlesService.addView(articleId);
         const article = await articlesService.getOne(articleId).lean();
 
         res.render('articles/details', { article });
