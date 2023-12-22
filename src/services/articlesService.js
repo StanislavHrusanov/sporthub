@@ -9,3 +9,5 @@ exports.getArticlesOfExactSport = (sport) => Article.find({ sport: sport }).sort
 exports.getArticlesOfExactLeague = (sport, league) => Article.find({ sport: sport, league: league }).sort({ createdAt: -1 }).populate('author');
 
 exports.getOne = (articleId) => Article.findById(articleId).populate('author');
+
+exports.getAll = () => Article.find().populate('author');
