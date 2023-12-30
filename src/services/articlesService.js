@@ -20,3 +20,10 @@ exports.addView = async (articleId) => {
 }
 
 exports.getAll = () => Article.find().populate('author');
+
+exports.getSimilarNews = (article) => {
+    if (article.sport == 'ФУТБОЛ СВЯТ') {
+        return Article.find({ sport: article.sport, league: article.league, _id: { $nin: [article._id] } }).sort({ createdAt: -1 }).limit(5);
+    }
+    return Article.find({ sport: article.sport, _id: { $nin: [article._id] } }).sort({ createdAt: -1 }).limit(5);
+}
