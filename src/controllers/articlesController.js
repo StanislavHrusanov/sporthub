@@ -191,7 +191,7 @@ router.get('/otherSports/athletics', async (req, res) => {
 
 router.get('/otherSports/motorSports', async (req, res) => {
     try {
-        const articles = await articlesService.getArticlesOfExactSport('МОТО СПОРТОВЕ').lean();
+        const articles = await articlesService.getArticlesOfExactSport('МОТОРНИ СПОРТОВЕ').lean();
         res.render('articles/category', { articles });
 
     } catch (error) {
