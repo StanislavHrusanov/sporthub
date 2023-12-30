@@ -225,8 +225,9 @@ router.get('/:articleId/details', async (req, res) => {
     try {
         await articlesService.addView(articleId);
         const article = await articlesService.getOne(articleId).lean();
+        const similarNews = await articlesService.getSimilarNews(article).lean();
 
-        res.render('articles/details', { article });
+        res.render('articles/details', { article, similarNews });
     } catch (error) {
         res.send(error);
     }

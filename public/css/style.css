@@ -1540,6 +1540,13 @@ pre code {
     max-width: 33.33333%;
   }
 
+  .col-lg-4-details {
+    flex: 0 0 calc(37% - 1rem);
+    max-width: calc(37% - 1rem);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
   .col-lg-5 {
     flex: 0 0 41.66667%;
     max-width: 41.66667%;
@@ -1565,6 +1572,11 @@ pre code {
   .col-lg-8 {
     flex: 0 0 66.66667%;
     max-width: 66.66667%;
+  }
+
+  .col-lg-8-details {
+    flex: 0 0 63%;
+    max-width: 63%;
   }
 
   .col-lg-8-catalog {
@@ -5245,6 +5257,18 @@ input[type="button"].btn-block {
 
 .badge {
   display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.badge-1 {
+  display: block;
   padding: 0.25em 0.4em;
   font-size: 75%;
   font-weight: 700;
@@ -10538,6 +10562,14 @@ a.text-secondary:focus {
   -webkit-box-orient: vertical;
 }
 
+.title-ellipsis-3 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .title-ellipsis-7 {
   display: -webkit-box;
   overflow: hidden;
@@ -11121,4 +11153,10 @@ h6,
   .form-view {
     width: 35%;
   }
+}
+
+.di-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
