@@ -11160,3 +11160,36 @@ h6,
   flex-direction: column;
   align-items: start;
 }
+
+.pagination-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pages select {
+  margin: 1rem;
+  padding: 0.3rem;
+  font-weight: bold;
+  border: 2px solid lightgray;
+  color: rgb(70, 70, 70);
+}
+
+.prev,
+.next {
+  margin: 1rem;
+  padding: 0.5rem 3rem;
+  background-color: #ffc107;
+  border: none;
+}
+
+.prev i,
+.next i {
+  font-size: 1.25rem;
+  color: #212529;
+}
