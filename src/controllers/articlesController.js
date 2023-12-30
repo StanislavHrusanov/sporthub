@@ -21,8 +21,11 @@ router.post('/addArticle', isLoggedIn, async (req, res) => {
 });
 
 router.get('/news', async (req, res) => {
+
+    const { page = 1, limit = 12 } = req.query;
+
     try {
-        const articles = await articlesService.getAll().lean();
+        const articles = await articlesService.getAll(page, limit).lean();
         res.render('articles/allNews', { articles });
     } catch (error) {
         res.send(error);

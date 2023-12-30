@@ -19,7 +19,7 @@ exports.addView = async (articleId) => {
     await article.save();
 }
 
-exports.getAll = () => Article.find().populate('author');
+exports.getAll = (page, limit) => Article.find().sort({ createdAt: -1 }).limit(limit * 1).skip((page - 1) * limit).populate('author');
 
 exports.getSimilarNews = (article) => {
     if (article.sport == 'ФУТБОЛ СВЯТ') {
