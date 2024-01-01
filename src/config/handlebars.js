@@ -56,6 +56,39 @@ hbars.handlebars.registerHelper('articleDate', function (createdAt) {
     return `${months[month]} ${date}, ${year}`;
 });
 
+hbars.handlebars.registerHelper('prevPage', function (req) {
+    let url = req.originalUrl;
+
+    let [origUrl, cPage] = url.split('=');
+    let currPage = Number(cPage);
+
+    return origUrl += `=${currPage - 1}`;
+
+});
+
+hbars.handlebars.registerHelper('nextPage', function (req) {
+    let url = req.originalUrl;
+    if (!url.includes('?page=')) {
+        return url += '?page=2';
+    } else {
+        let [origUrl, cPage] = url.split('=');
+        let currPage = Number(cPage);
+
+        return origUrl += `=${currPage + 1}`;
+    }
+});
+
+hbars.handlebars.registerHelper('getCurrPage', function (req) {
+    let url = req.originalUrl;
+    if (!url.includes('?page=')) {
+        return '1';
+    } else {
+        let [origUrl, cPage] = url.split('=');
+
+        return cPage;
+    }
+});
+
 module.exports = (app) => {
     app.engine('hbs', hbs.engine({
         extname: 'hbs'
