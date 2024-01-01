@@ -27,3 +27,5 @@ exports.getSimilarNews = (article) => {
     }
     return Article.find({ sport: article.sport, _id: { $nin: [article._id] } }).sort({ createdAt: -1 }).limit(5);
 }
+
+exports.getArticlesCount = () => Article.countDocuments({});
