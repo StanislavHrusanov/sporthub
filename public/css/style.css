@@ -11172,6 +11172,14 @@ h6,
   justify-content: center;
 }
 
+.pages div {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgb(70, 70, 70);
+  padding: 8px 16px;
+  text-decoration: underline;
+}
+
 .pages select {
   margin: 1rem;
   padding: 0.3rem;

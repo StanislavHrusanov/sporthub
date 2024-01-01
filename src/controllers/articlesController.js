@@ -21,12 +21,17 @@ router.post('/addArticle', isLoggedIn, async (req, res) => {
 });
 
 router.get('/news', async (req, res) => {
-
-    const { page = 1, limit = 12 } = req.query;
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
 
     try {
         const articles = await articlesService.getAll(page, limit).lean();
-        res.render('articles/allNews', { articles });
+        const count = await articlesService.getArticlesCount();
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+
+        res.render('articles/allNews', { articles, page, req, isFirst, isLast });
     } catch (error) {
         res.send(error);
     }
