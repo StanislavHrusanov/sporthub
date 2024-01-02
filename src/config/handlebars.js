@@ -59,10 +59,10 @@ hbars.handlebars.registerHelper('articleDate', function (createdAt) {
 hbars.handlebars.registerHelper('prevPage', function (req) {
     let url = req.originalUrl;
 
-    let [origUrl, cPage] = url.split('=');
+    let [origUrl, cPage] = url.split('page=');
     let currPage = Number(cPage);
 
-    return origUrl += `=${currPage - 1}`;
+    return origUrl += `page=${currPage - 1}`;
 
 });
 
@@ -71,10 +71,10 @@ hbars.handlebars.registerHelper('nextPage', function (req) {
     if (!url.includes('?page=')) {
         return url += '?page=2';
     } else {
-        let [origUrl, cPage] = url.split('=');
+        let [origUrl, cPage] = url.split('page=');
         let currPage = Number(cPage);
 
-        return origUrl += `=${currPage + 1}`;
+        return origUrl += `page=${currPage + 1}`;
     }
 });
 
@@ -83,7 +83,7 @@ hbars.handlebars.registerHelper('getCurrPage', function (req) {
     if (!url.includes('?page=')) {
         return '1';
     } else {
-        let [origUrl, cPage] = url.split('=');
+        let [origUrl, cPage] = url.split('page=');
 
         return cPage;
     }
