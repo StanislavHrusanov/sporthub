@@ -276,9 +276,16 @@ router.get('/otherSports/volleyball', async (req, res) => {
 });
 
 router.get('/otherSports/tennis', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactSport('ТЕНИС').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactSport('ТЕНИС', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactSport('ТЕНИС');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -286,9 +293,16 @@ router.get('/otherSports/tennis', async (req, res) => {
 });
 
 router.get('/otherSports/athletics', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactSport('ЛЕКА АТЛЕТИКА').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactSport('ЛЕКА АТЛЕТИКА', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactSport('ЛЕКА АТЛЕТИКА');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -296,9 +310,16 @@ router.get('/otherSports/athletics', async (req, res) => {
 });
 
 router.get('/otherSports/motorSports', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactSport('МОТОРНИ СПОРТОВЕ').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactSport('МОТОРНИ СПОРТОВЕ', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactSport('МОТОРНИ СПОРТОВЕ');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -306,9 +327,16 @@ router.get('/otherSports/motorSports', async (req, res) => {
 });
 
 router.get('/otherSports/combatSports', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactSport('БОЙНИ СПОРТОВЕ').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactSport('БОЙНИ СПОРТОВЕ', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactSport('БОЙНИ СПОРТОВЕ');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -316,9 +344,16 @@ router.get('/otherSports/combatSports', async (req, res) => {
 });
 
 router.get('/otherSports/others', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactSport('ДРУГИ').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactSport('ДРУГИ', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactSport('ДРУГИ');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
