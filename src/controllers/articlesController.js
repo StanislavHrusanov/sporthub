@@ -31,16 +31,23 @@ router.get('/news', async (req, res) => {
         let isLast = page >= pages;
         let isFirst = page == 1;
 
-        res.render('articles/allNews', { articles, page, pages, req, isFirst, isLast });
+        res.render('articles/allNews', { articles, pages, req, isFirst, isLast });
     } catch (error) {
         res.send(error);
     }
 });
 
 router.get('/bgFootball', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactSport('БГ ФУТБОЛ').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactSport('БГ ФУТБОЛ', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactSport('БГ ФУТБОЛ');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -48,9 +55,16 @@ router.get('/bgFootball', async (req, res) => {
 });
 
 router.get('/worldFootball', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactSport('ФУТБОЛ СВЯТ').lean();
-        res.render('articles/worldFootball', { articles });
+        const articles = await articlesService.getArticlesOfExactSport('ФУТБОЛ СВЯТ', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactSport('ФУТБОЛ СВЯТ');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/worldFootball', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
