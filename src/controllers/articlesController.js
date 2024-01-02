@@ -242,9 +242,16 @@ router.get('/worldFootball/OtherLeagues', async (req, res) => {
 });
 
 router.get('/otherSports/basketball', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactSport('БАСКЕТБОЛ').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactSport('БАСКЕТБОЛ', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactSport('БАСКЕТБОЛ');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
