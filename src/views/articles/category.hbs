@@ -42,13 +42,19 @@
                     {{/each}}
                 </div>
                 <div class="pagination-1 mt-4">
-                    <button class="prev"><i class="fa fa-arrow-left"></i></button>
+                    {{#if isFirst}}
+                    <div class="prev"><i class="fa fa-arrow-left"></i></div>
+                    {{else}}
+                    <a href="{{prevPage req}}" class="prev"><i class="fa fa-arrow-left"></i></a>
+                    {{/if}}
                     <div class="pages">
-                        <select name="" id="">
-                            <option value="">1</option>
-                        </select>
+                        <div>стр.&nbsp{{getCurrPage req}}&nbspот&nbsp{{pages}}</div>
                     </div>
-                    <button class="next"><i class="fa fa-arrow-right"></i></button>
+                    {{#if isLast}}
+                    <div class="next"><i class="fa fa-arrow-right"></i></div>
+                    {{else}}
+                    <a href="{{nextPage req}}" class="next"><i class="fa fa-arrow-right"></i></a>
+                    {{/if}}
                 </div>
             </div>
         </div>
