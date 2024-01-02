@@ -4,9 +4,9 @@ exports.addArticle = (article) => Article.create(article);
 
 exports.getLatestArticles = () => Article.find().sort({ createdAt: -1 }).limit(13);
 
-exports.getArticlesOfExactSport = (sport) => Article.find({ sport: sport }).sort({ createdAt: -1 }).populate('author');
+exports.getArticlesOfExactSport = (sport, page, limit) => Article.find({ sport: sport }).sort({ createdAt: -1 }).limit(limit * 1).skip((page - 1) * limit).populate('author');
 
-exports.getArticlesOfExactLeague = (sport, league) => Article.find({ sport: sport, league: league }).sort({ createdAt: -1 }).populate('author');
+exports.getArticlesOfExactLeague = (sport, league, page, limit) => Article.find({ sport: sport, league: league }).sort({ createdAt: -1 }).limit(limit * 1).skip((page - 1) * limit).populate('author');
 
 exports.getOne = (articleId) => Article.findById(articleId).populate('author');
 
@@ -29,3 +29,7 @@ exports.getSimilarNews = (article) => {
 }
 
 exports.getArticlesCount = () => Article.countDocuments({});
+
+exports.getArticlesCountOfExactSport = (sport) => Article.countDocuments({ sport: sport });
+
+exports.getArticlesCountOfExactLeague = (sport, league) => Article.countDocuments({ sport: sport, league: league });
