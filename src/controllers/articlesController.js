@@ -89,9 +89,16 @@ router.get('/worldFootball/England', async (req, res) => {
 });
 
 router.get('/worldFootball/Spain', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Испания').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Испания', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Испания');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
