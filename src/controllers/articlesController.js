@@ -31,7 +31,7 @@ router.get('/news', async (req, res) => {
         let isLast = page >= pages;
         let isFirst = page == 1;
 
-        res.render('articles/allNews', { articles, page, req, isFirst, isLast });
+        res.render('articles/allNews', { articles, page, pages, req, isFirst, isLast });
     } catch (error) {
         res.send(error);
     }
