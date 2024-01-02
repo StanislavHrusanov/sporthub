@@ -157,9 +157,16 @@ router.get('/worldFootball/France', async (req, res) => {
 });
 
 router.get('/worldFootball/ChampionsLeague', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'ШЛ').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'ШЛ', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'ШЛ');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -167,9 +174,16 @@ router.get('/worldFootball/ChampionsLeague', async (req, res) => {
 });
 
 router.get('/worldFootball/EuropaLeague', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Лига Европа').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Лига Европа', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Лига Европа');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -177,9 +191,16 @@ router.get('/worldFootball/EuropaLeague', async (req, res) => {
 });
 
 router.get('/worldFootball/EuropaConferenceLeague', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Лига на конференциите').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Лига на конференциите', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Лига на конференциите');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -187,9 +208,16 @@ router.get('/worldFootball/EuropaConferenceLeague', async (req, res) => {
 });
 
 router.get('/worldFootball/NationalTeams', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Национални отбори').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Национални отбори', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Национални отбори');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
@@ -197,9 +225,16 @@ router.get('/worldFootball/NationalTeams', async (req, res) => {
 });
 
 router.get('/worldFootball/OtherLeagues', async (req, res) => {
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
     try {
-        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Други').lean();
-        res.render('articles/category', { articles });
+        const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Други', page, limit).lean();
+        const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Други');
+        const pages = Math.ceil(count / limit);
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
         res.send(error);
