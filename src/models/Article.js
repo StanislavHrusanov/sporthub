@@ -13,7 +13,7 @@ const articleSchema = new mongoose.Schema({
         required: true
     },
     text: {
-        type: String,
+        type: Array,
         required: true
     },
     imageUrl: {
