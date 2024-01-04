@@ -12,6 +12,10 @@ router.post('/addArticle', isLoggedIn, async (req, res) => {
     try {
         // article.views = 0;
         article.author = req.user._id;
+        const splitedText = article.text.split('\n');
+        const text = [];
+        splitedText.forEach(p => text.push({ paragraph: p }));
+        article.text = text;
         await articlesService.addArticle(article);
         res.redirect('/');
 
