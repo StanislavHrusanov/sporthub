@@ -11209,8 +11209,7 @@ h6,
 
 .edit {
   margin: 0.5rem 0;
-  padding: 0.5rem 0;
-  width: 6rem;
+  padding: 0.5rem 1rem;
   background-color: #343a40;
   color: #ffc107;
   border: none;
@@ -11219,8 +11218,7 @@ h6,
 
 .del {
   margin: 0.5rem 0;
-  padding: 0.5rem 0;
-  width: 6rem;
+  padding: 0.5rem 1rem;
   background-color: #ffc107;
   color: #343a40;
   border: none;
