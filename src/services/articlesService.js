@@ -33,3 +33,13 @@ exports.getArticlesCount = () => Article.countDocuments({});
 exports.getArticlesCountOfExactSport = (sport) => Article.countDocuments({ sport: sport });
 
 exports.getArticlesCountOfExactLeague = (sport, league) => Article.countDocuments({ sport: sport, league: league });
+
+exports.edit = (articleId, article) => {
+    if (article.sport != 'ФУТБОЛ СВЯТ') {
+        return Article.findOneAndUpdate(
+            { _id: articleId },
+            { $unset: { league: "" }, sport: article.sport, imageUrl: article.imageUrl, title: article.title, text: article.text }
+        );
+    }
+    return Article.findByIdAndUpdate(articleId, article);
+}

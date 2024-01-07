@@ -1,6 +1,8 @@
 const router = require('express').Router();
+const { json } = require('express');
 const { isLoggedIn } = require('../middlewares/authMiddleware');
 const articlesService = require('../services/articlesService');
+const validation = require('../utils/validation');
 
 router.get('/addArticle', isLoggedIn, (req, res) => {
     res.render('articles/add');
@@ -9,8 +11,10 @@ router.get('/addArticle', isLoggedIn, (req, res) => {
 router.post('/addArticle', isLoggedIn, async (req, res) => {
     const article = req.body;
 
+    const articleCopy = JSON.parse(JSON.stringify(article));
     try {
         // article.views = 0;
+        validation.validateArticle(article);
         article.author = req.user._id;
         const splitedText = article.text.split('\n');
         const text = [];
@@ -20,7 +24,8 @@ router.post('/addArticle', isLoggedIn, async (req, res) => {
         res.redirect('/');
 
     } catch (error) {
-        res.render('articles/add', { article, error });
+        const notSplitedText = articleCopy.text;
+        res.render('articles/add', { article, notSplitedText, error });
     }
 });
 
@@ -375,6 +380,42 @@ router.get('/:articleId/details', async (req, res) => {
         res.render('articles/details', { article, similarNews });
     } catch (error) {
         res.send(error);
+    }
+});
+
+router.get('/:articleId/edit', async (req, res) => {
+    const articleId = req.params.articleId;
+
+    try {
+        const article = await articlesService.getOne(articleId).lean();
+        const text = [];
+        article.text.forEach(p => text.push(p.paragraph));
+        const notSplitedText = text.join('\n');
+
+        res.render('articles/edit', { article, notSplitedText });
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.post('/:articleId/edit', async (req, res) => {
+    const articleId = req.params.articleId;
+    const article = req.body;
+
+    const articleCopy = JSON.parse(JSON.stringify(article));
+
+    try {
+        validation.validateArticle(article);
+        const splitedText = article.text.split('\n');
+        const text = [];
+        splitedText.forEach(p => text.push({ paragraph: p }));
+        article.text = text;
+
+        await articlesService.edit(articleId, article);
+        res.redirect(`/articles/${articleId}/details`);
+    } catch (error) {
+        const notSplitedText = articleCopy.text;
+        res.render('articles/edit', { article, notSplitedText, error });
     }
 });
 
