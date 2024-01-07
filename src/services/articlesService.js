@@ -43,3 +43,5 @@ exports.edit = (articleId, article) => {
     }
     return Article.findByIdAndUpdate(articleId, article);
 }
+
+exports.delete = (articleId) => Article.findByIdAndDelete(articleId);

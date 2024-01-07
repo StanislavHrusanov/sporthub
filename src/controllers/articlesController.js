@@ -419,4 +419,15 @@ router.post('/:articleId/edit', async (req, res) => {
     }
 });
 
+router.get('/:articleId/delete', async (req, res) => {
+    const articleId = req.params.articleId;
+
+    try {
+        await articlesService.delete(articleId);
+        res.redirect('/');
+    } catch (error) {
+        res.send(error);
+    }
+});
+
 module.exports = router;

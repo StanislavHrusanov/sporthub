@@ -1,4 +1,17 @@
 <div class="container-fluid mt-5">
+    <div class="confirm">
+        <div class="confirm-window">
+            <div class="confirm-titlebar">
+                <span class="confirm-title"></span>
+                <button onclick="showHideConfirm()" class="confirm-close">x</button>
+            </div>
+            <div class="confirm-content">Сигурен ли си, че искаш да изтриеш тази статия?</div>
+            <div class="confirm-buttons">
+                <a href="/articles/{{article._id}}/delete" class="confirm-button">Да</a>
+                <button onclick="showHideConfirm()" class="confirm-button">Не</button>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -17,7 +30,7 @@
                         {{/each}}
                         <div class="edit-delete">
                             <a href="/articles/{{article._id}}/edit" class="edit">Редактирай</a>
-                            <a href="" class="del">Изтрий</a>
+                            <a onclick="showHideConfirm()" class="del">Изтрий</a>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
