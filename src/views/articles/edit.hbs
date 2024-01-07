@@ -1,0 +1,57 @@
+<main id="form-main">
+    <section class="form-view">
+        <h1>Редактирай статия</h1>
+        <form method="post" action="" class="forms" id="addForm">
+            <div class="input">
+                <label for="sport">Спорт</label>
+                <select onchange="selectLeague()" name="sport" id="sport">
+                    <option value="{{article.sport}}" hidden="hidden" selected="selected">{{article.sport}}</option>
+                    <option value="БГ ФУТБОЛ">БГ ФУТБОЛ</option>
+                    <option value="ФУТБОЛ СВЯТ">ФУТБОЛ СВЯТ</option>
+                    <option value="БАСКЕТБОЛ">БАСКЕТБОЛ</option>
+                    <option value="ВОЛЕЙБОЛ">ВОЛЕЙБОЛ</option>
+                    <option value="ТЕНИС">ТЕНИС</option>
+                    <option value="ЛЕКА АТЛЕТИКА">ЛЕКА АТЛЕТИКА</option>
+                    <option value="МОТОРНИ СПОРТОВЕ">МОТОРНИ СПОРТОВЕ</option>
+                    <option value="БОЙНИ СПОРТОВЕ">БОЙНИ СПОРТОВЕ</option>
+                    <option value="ДРУГИ">ДРУГИ</option>
+                </select>
+            </div>
+            {{#if article.league}}
+            <div class="input" id="leagueName">
+                <label>Лига</label>
+                <select name="league" id="league">
+                    <option value="{{article.league}}" hidden="hidden" selected="selected">{{article.league}}</option>
+                    <option value="Англия">Англия</option>
+                    <option value="Испания">Испания</option>
+                    <option value="Италия">Италия</option>
+                    <option value="Германия">Германия</option>
+                    <option value="Франция">Франция</option>
+                    <option value="ШЛ">ШЛ</option>
+                    <option value="Лига Европа">Лига Европа</option>
+                    <option value="Лига на конференциите">Лига на конференциите</option>
+                    <option value="Национални отбори">Национални отбори</option>
+                    <option value="Други">Други</option>
+                </select>
+            </div>
+            {{/if}}
+            <div class="input" id="imageUrlBox">
+                <label for="imageUrl">Основна снимка</label>
+                <input type="text" name="imageUrl" id="imageUrl" value="{{article.imageUrl}}">
+            </div>
+            <div class="input">
+                <label for="title">Заглавие</label>
+                <input type="text" name="title" id="title" value="{{article.title}}">
+            </div>
+            <div class="input">
+                <label for="text">Текст</label>
+                <textarea name="text" id="text" rows="5">{{notSplitedText}}</textarea>
+            </div>
+            <div class="action">
+                <input type="submit" value="Редактирай"></input>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script src="../../../public/js/selectLeague.js" defer></script>
