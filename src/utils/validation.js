@@ -18,3 +18,15 @@ exports.validateUser = ({ username, firstName, lastName, password, repass, email
         throw ('Невалиден имейл адрес!');
     }
 }
+
+exports.validateArticle = ({ imageUrl, title, text }) => {
+    if (!imageUrl.match(/https*:\/\/.*/g)) {
+        throw 'Добави валиден линк към снимка!';
+    }
+    if (title == '') {
+        throw 'Добави заглавие!';
+    }
+    if (text == '') {
+        throw 'Добави текст!';
+    }
+}
