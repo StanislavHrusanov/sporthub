@@ -45,3 +45,12 @@ exports.edit = (articleId, article) => {
 }
 
 exports.delete = (articleId) => Article.findByIdAndDelete(articleId);
+
+exports.search = (searched, page, limit) => Article
+    .find({ "title": { $regex: searched, $options: "i" } })
+    .sort({ createdAt: -1 })
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .populate('author');
+
+exports.getSearchedArticlesCount = (searched) => Article.countDocuments({ "title": { $regex: searched, $options: "i" } });
