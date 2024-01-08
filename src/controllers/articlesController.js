@@ -436,7 +436,7 @@ router.get('/search?', async (req, res) => {
     let limit = 12;
 
     if (searched.match(/^\s*$/gm)) {
-        res.redirect('/articles/news');
+        return res.redirect('/articles/news');
     }
     try {
         const articles = await articlesService.search(searched, page, limit).lean();
