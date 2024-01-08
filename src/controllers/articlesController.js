@@ -36,7 +36,7 @@ router.get('/news', async (req, res) => {
     try {
         const articles = await articlesService.getAll(page, limit).lean();
         const count = await articlesService.getArticlesCount();
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
 
@@ -53,7 +53,7 @@ router.get('/bgFootball', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('БГ ФУТБОЛ', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('БГ ФУТБОЛ');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -70,7 +70,7 @@ router.get('/worldFootball', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('ФУТБОЛ СВЯТ', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('ФУТБОЛ СВЯТ');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/worldFootball', { articles, pages, req, isFirst, isLast });
@@ -87,7 +87,7 @@ router.get('/worldFootball/England', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Англия', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Англия');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -104,7 +104,7 @@ router.get('/worldFootball/Spain', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Испания', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Испания');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -121,7 +121,7 @@ router.get('/worldFootball/Italy', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Италия', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Италия');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -138,7 +138,7 @@ router.get('/worldFootball/Germany', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Германия', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Германия');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -155,7 +155,7 @@ router.get('/worldFootball/France', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Франция', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Франция');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -172,7 +172,7 @@ router.get('/worldFootball/ChampionsLeague', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'ШЛ', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'ШЛ');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -189,7 +189,7 @@ router.get('/worldFootball/EuropaLeague', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Лига Европа', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Лига Европа');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -206,7 +206,7 @@ router.get('/worldFootball/EuropaConferenceLeague', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Лига на конференциите', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Лига на конференциите');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -223,7 +223,7 @@ router.get('/worldFootball/NationalTeams', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Национални отбори', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Национални отбори');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -240,7 +240,7 @@ router.get('/worldFootball/OtherLeagues', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactLeague('ФУТБОЛ СВЯТ', 'Други', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactLeague('ФУТБОЛ СВЯТ', 'Други');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -257,7 +257,7 @@ router.get('/otherSports/basketball', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('БАСКЕТБОЛ', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('БАСКЕТБОЛ');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -274,7 +274,7 @@ router.get('/otherSports/volleyball', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('ВОЛЕЙБОЛ', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('ВОЛЕЙБОЛ');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -291,7 +291,7 @@ router.get('/otherSports/tennis', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('ТЕНИС', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('ТЕНИС');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -308,7 +308,7 @@ router.get('/otherSports/athletics', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('ЛЕКА АТЛЕТИКА', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('ЛЕКА АТЛЕТИКА');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -325,7 +325,7 @@ router.get('/otherSports/motorSports', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('МОТОРНИ СПОРТОВЕ', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('МОТОРНИ СПОРТОВЕ');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -342,7 +342,7 @@ router.get('/otherSports/combatSports', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('БОЙНИ СПОРТОВЕ', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('БОЙНИ СПОРТОВЕ');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -359,7 +359,7 @@ router.get('/otherSports/others', async (req, res) => {
     try {
         const articles = await articlesService.getArticlesOfExactSport('ДРУГИ', page, limit).lean();
         const count = await articlesService.getArticlesCountOfExactSport('ДРУГИ');
-        const pages = Math.ceil(count / limit);
+        const pages = Math.ceil(count / limit) || 1;
         let isLast = page >= pages;
         let isFirst = page == 1;
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
@@ -425,6 +425,26 @@ router.get('/:articleId/delete', async (req, res) => {
     try {
         await articlesService.delete(articleId);
         res.redirect('/');
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+router.get('/search?', async (req, res) => {
+    let searched = req.query.searched;
+    let page = req.query.page ? Number(req.query.page) : 1;
+    let limit = 12;
+
+    if (searched.match(/^\s*$/gm)) {
+        res.redirect('/articles/news');
+    }
+    try {
+        const articles = await articlesService.search(searched, page, limit).lean();
+        const count = await articlesService.getSearchedArticlesCount(searched);
+        const pages = Math.ceil(count / limit) || 1;
+        let isLast = page >= pages;
+        let isFirst = page == 1;
+        res.render('articles/search', { articles, pages, req, isFirst, isLast, searched, count });
     } catch (error) {
         res.send(error);
     }
