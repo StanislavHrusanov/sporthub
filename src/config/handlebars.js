@@ -80,12 +80,34 @@ hbars.handlebars.registerHelper('nextPage', function (req) {
 
 hbars.handlebars.registerHelper('getCurrPage', function (req) {
     let url = req.originalUrl;
-    if (!url.includes('?page=')) {
+    if (!url.includes('page=')) {
         return '1';
     } else {
         let [origUrl, cPage] = url.split('page=');
 
         return cPage;
+    }
+});
+
+hbars.handlebars.registerHelper('prevPagePlusSearch', function (req) {
+    let url = req.originalUrl;
+
+    let [origUrl, cPage] = url.split('&page=');
+    let currPage = Number(cPage);
+
+    return origUrl += `&page=${currPage - 1}`;
+
+});
+
+hbars.handlebars.registerHelper('nextPagePlusSearch', function (req) {
+    let url = req.originalUrl;
+    if (!url.includes('&page=')) {
+        return url += '&page=2';
+    } else {
+        let [origUrl, cPage] = url.split('&page=');
+        let currPage = Number(cPage);
+
+        return origUrl += `&page=${currPage + 1}`;
     }
 });
 
