@@ -7,7 +7,8 @@ exports.createToken = (user) => {
     const payload = {
         _id: user._id,
         username: user.username,
-        email: user.email
+        email: user.email,
+        isAdmin: user.isAdmin
     }
 
     const options = { expiresIn: '2d' }
