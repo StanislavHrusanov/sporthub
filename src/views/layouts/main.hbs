@@ -143,7 +143,9 @@
                         </div>
                     </div>
                     {{#if user}}
+                    {{#if user.isAdmin}}
                     <a href="/articles/addArticle" class="nav-item nav-link">Добави Статия</a>
+                    {{/if}}
                     <a href="/auth/logout" class="nav-item nav-link auth">Изход</a>
                     {{else}}
                     <a href="/auth/login" class="nav-item nav-link auth">Вход</a>
