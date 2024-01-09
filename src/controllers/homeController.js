@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         const twelfthAndThirteenth = latestArticles.slice(11, 13);
         res.render('home/home', { firstFour, fifthAndSixth, seventhAndEighth, nineth, tenthAndEleventh, twelfthAndThirteenth });
     } catch (error) {
-        res.send(error);
+        res.render('home/404', { error });
     }
 
 });
