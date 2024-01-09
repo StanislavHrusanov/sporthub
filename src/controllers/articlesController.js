@@ -42,7 +42,7 @@ router.get('/news', async (req, res) => {
 
         res.render('articles/allNews', { articles, pages, req, isFirst, isLast });
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -59,7 +59,7 @@ router.get('/bgFootball', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -76,7 +76,7 @@ router.get('/worldFootball', async (req, res) => {
         res.render('articles/worldFootball', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -93,7 +93,7 @@ router.get('/worldFootball/England', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -110,7 +110,7 @@ router.get('/worldFootball/Spain', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -127,7 +127,7 @@ router.get('/worldFootball/Italy', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -144,7 +144,7 @@ router.get('/worldFootball/Germany', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -161,7 +161,7 @@ router.get('/worldFootball/France', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -178,7 +178,7 @@ router.get('/worldFootball/ChampionsLeague', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -195,7 +195,7 @@ router.get('/worldFootball/EuropaLeague', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -212,7 +212,7 @@ router.get('/worldFootball/EuropaConferenceLeague', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -229,7 +229,7 @@ router.get('/worldFootball/NationalTeams', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -246,7 +246,7 @@ router.get('/worldFootball/OtherLeagues', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -263,7 +263,7 @@ router.get('/otherSports/basketball', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -280,7 +280,7 @@ router.get('/otherSports/volleyball', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -297,7 +297,7 @@ router.get('/otherSports/tennis', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -314,7 +314,7 @@ router.get('/otherSports/athletics', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -331,7 +331,7 @@ router.get('/otherSports/motorSports', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -348,7 +348,7 @@ router.get('/otherSports/combatSports', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -365,7 +365,7 @@ router.get('/otherSports/others', async (req, res) => {
         res.render('articles/category', { articles, pages, req, isFirst, isLast });
 
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -379,7 +379,7 @@ router.get('/:articleId/details', async (req, res) => {
 
         res.render('articles/details', { article, similarNews });
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -394,7 +394,7 @@ router.get('/:articleId/edit', isAdmin, async (req, res) => {
 
         res.render('articles/edit', { article, notSplitedText });
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -426,7 +426,7 @@ router.get('/:articleId/delete', isAdmin, async (req, res) => {
         await articlesService.delete(articleId);
         res.redirect('/');
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
@@ -446,7 +446,7 @@ router.get('/search?', async (req, res) => {
         let isFirst = page == 1;
         res.render('articles/search', { articles, pages, req, isFirst, isLast, searched, count });
     } catch (error) {
-        res.render('home/404', { error });
+        res.redirect('/404');
     }
 });
 
