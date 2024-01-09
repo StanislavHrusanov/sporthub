@@ -1,14 +1,13 @@
 const router = require('express').Router();
-const { isLoggedIn } = require('../middlewares/authMiddleware');
 const { isAdmin } = require('../middlewares/routGuards');
 const articlesService = require('../services/articlesService');
 const validation = require('../utils/validation');
 
-router.get('/addArticle', isLoggedIn, isAdmin, (req, res) => {
+router.get('/addArticle', isAdmin, (req, res) => {
     res.render('articles/add');
 });
 
-router.post('/addArticle', isLoggedIn, isAdmin, async (req, res) => {
+router.post('/addArticle', isAdmin, async (req, res) => {
     const article = req.body;
 
     const articleCopy = JSON.parse(JSON.stringify(article));
