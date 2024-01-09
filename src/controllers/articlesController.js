@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const { json } = require('express');
 const { isLoggedIn } = require('../middlewares/authMiddleware');
+const { isAdmin } = require('../middlewares/routGuards');
 const articlesService = require('../services/articlesService');
 const validation = require('../utils/validation');
 
-router.get('/addArticle', isLoggedIn, (req, res) => {
+router.get('/addArticle', isLoggedIn, isAdmin, (req, res) => {
     res.render('articles/add');
 });
 
-router.post('/addArticle', isLoggedIn, async (req, res) => {
+router.post('/addArticle', isLoggedIn, isAdmin, async (req, res) => {
     const article = req.body;
 
     const articleCopy = JSON.parse(JSON.stringify(article));
@@ -383,7 +383,7 @@ router.get('/:articleId/details', async (req, res) => {
     }
 });
 
-router.get('/:articleId/edit', async (req, res) => {
+router.get('/:articleId/edit', isAdmin, async (req, res) => {
     const articleId = req.params.articleId;
 
     try {
@@ -398,7 +398,7 @@ router.get('/:articleId/edit', async (req, res) => {
     }
 });
 
-router.post('/:articleId/edit', async (req, res) => {
+router.post('/:articleId/edit', isAdmin, async (req, res) => {
     const articleId = req.params.articleId;
     const article = req.body;
 
@@ -419,7 +419,7 @@ router.post('/:articleId/edit', async (req, res) => {
     }
 });
 
-router.get('/:articleId/delete', async (req, res) => {
+router.get('/:articleId/delete', isAdmin, async (req, res) => {
     const articleId = req.params.articleId;
 
     try {
