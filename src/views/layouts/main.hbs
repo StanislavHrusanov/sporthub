@@ -101,8 +101,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+                <form method="get" action="/articles/search?" class="nav-item nav-link mobile-search"
+                    style="width: 100%;">
+                    <input type="text" name="searched" value="{{searched}}" class="form-control border-0"
+                        placeholder="Търси">
+                    <div class="input-group-append">
+                        <button type="submit" class="input-group-text bg-primary text-dark border-0 px-3"><i
+                                class="fa fa-search"></i></button>
+                    </div>
+                </form>
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="/" class="nav-item nav-link active">Дом на спорта</a>
+                    <a href="/" class="nav-item nav-link">Дом на спорта</a>
                     <a href="/articles/bgFootball" class="nav-item nav-link">БГ Футбол</a>
                     <div class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Футбол
@@ -142,7 +151,8 @@
                 </div>
                 <form method="get" action="/articles/search?" class="input-group ml-auto d-none d-lg-flex"
                     style="width: 100%; max-width: 300px;">
-                    <input type="text" name="searched" value="{{searched}}" class="form-control border-0" placeholder="Търси">
+                    <input type="text" name="searched" value="{{searched}}" class="form-control border-0"
+                        placeholder="Търси">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text bg-primary text-dark border-0 px-3"><i
                                 class="fa fa-search"></i></button>
