@@ -4,6 +4,10 @@ exports.addArticle = (article) => Article.create(article);
 
 exports.getLatestArticles = () => Article.find().sort({ createdAt: -1 }).limit(13);
 
+exports.getMostViewedFootballArticles = (sports) => Article.find({ sport: { $in: sports } }).sort({ views: -1 }).limit(12);
+
+exports.getMostViewedArticlesExcludingFootball = (sports) => Article.find({ sport: { $nin: sports } }).sort({ views: -1 }).limit(5);
+
 exports.getArticlesOfExactSport = (sport, page, limit) => Article.find({ sport: sport }).sort({ createdAt: -1 }).limit(limit * 1).skip((page - 1) * limit).populate('author');
 
 exports.getArticlesOfExactLeague = (sport, league, page, limit) => Article.find({ sport: sport, league: league }).sort({ createdAt: -1 }).limit(limit * 1).skip((page - 1) * limit).populate('author');
