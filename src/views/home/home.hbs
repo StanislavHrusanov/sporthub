@@ -3,115 +3,40 @@
     <div class="row">
         <div class="col-lg-7 px-0">
             <div class="owl-carousel main-carousel position-relative">
+                {{#each firstThreeOfMostViewed}}
                 <div class="position-relative overflow-hidden" style="height: 500px;">
-                    <img class="img-fluid h-100"
-                        src="https://static.bnr.bg/gallery/cr/medium/e21ff7fe30835677349ff868d84a1d2c.jfif"
-                        style="object-fit: cover;">
+                    <img class="img-fluid h-100" src="{{imageUrl}}" style="object-fit: cover;">
                     <div class="overlay">
                         <div class="mb-2">
-                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="">Футбол</a>
-                            <a class="text-white" href="">Октомври 17, 2023</a>
+                            <div class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2">
+                                {{sport}}</div>
+                            <small class="text-white">{{articleDate createdAt}}</small>
                         </div>
-                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">Ливурпул пак победи
-                            Манчестър Юнайтед със 7:0!</a>
+                        <a class="h2 m-0 text-white text-uppercase font-weight-bold title-ellipsis-3"
+                            href="/articles/{{_id}}/details">{{title}}</a>
                     </div>
                 </div>
-                <div class="position-relative overflow-hidden" style="height: 500px;">
-                    <img class="img-fluid h-100"
-                        src="https://cdn.actualno.eu/actualno_2013/upload/news/2022/08/31/0804974001661952705_1937598_920x517.webp"
-                        style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-2">
-                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="">Футбол</a>
-                            <a class="text-white" href="">Октомври 17, 2023</a>
-                        </div>
-                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">Перуката подаде
-                            оставка!</a>
-                    </div>
-                </div>
-                <div class="position-relative overflow-hidden" style="height: 500px;">
-                    <img class="img-fluid h-100"
-                        src="https://tennis.bg/uploaded/posts/0d89de6946cd07606d90f7ed5bbea64c.jpg"
-                        style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-2">
-                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="">Тенис</a>
-                            <a class="text-white" href="">Октомври 17, 2023</a>
-                        </div>
-                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">Григор Димитров победи
-                            Новак Джокович в успорван мач!</a>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
         <div class="col-lg-5 px-0">
             <div class="row mx-0">
+                {{#each fromFourthToSeventhOfMostViewed}}
                 <div class="col-md-6 px-0">
                     <div class="position-relative overflow-hidden" style="height: 250px;">
-                        <img class="img-fluid w-100 h-100"
-                            src="https://debati.bg/wp-content/uploads/2021/09/8915916.jpeg" style="object-fit: cover;">
+                        <img class="img-fluid w-100 h-100" src="{{imageUrl}}" style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Футбол</a>
-                                <a class="text-white" href=""><small>Октомври 17, 2023</small></a>
+                                <div class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2">{{sport}}
+                                </div>
+                                <small class="text-white">{{articleDate createdAt}}</small>
                             </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Байерн Мюнхен
-                                с нов рекорд! Победи Барселона с 10:1! Томас Мюлер с 5 гола и 2 асистенции.</a>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold title-ellipsis-3"
+                                href="/articles/{{_id}}/details">{{title}}</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 px-0">
-                    <div class="position-relative overflow-hidden" style="height: 250px;">
-                        <img class="img-fluid w-100 h-100"
-                            src="https://trud.bg/public/images/articles/2020-06/29-1_8537684287945598666_big.jpg"
-                            style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Бокс</a>
-                                <a class="text-white" href=""><small>Януари 01, 2045</small></a>
-                            </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Антъни Джошуа
-                                е следващият съперник на Тайсън Фюри!</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 px-0">
-                    <div class="position-relative overflow-hidden" style="height: 250px;">
-                        <img class="img-fluid w-100 h-100"
-                            src="https://m4.netinfo.bg/media/images/41037/41037342/960-600-bylgariia-franciia.jpg"
-                            style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Волейбол</a>
-                                <a class="text-white" href=""><small>Януари 01, 2045</small></a>
-                            </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">България се
-                                класира за олимпиадата!</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 px-0">
-                    <div class="position-relative overflow-hidden" style="height: 250px;">
-                        <img class="img-fluid w-100 h-100"
-                            src="https://trafficnews.bg/news/2023/10/16/vezenkov-igra-oshte-edna-predsezonnite-509.jpg"
-                            style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Баскетбол</a>
-                                <a class="text-white" href=""><small>Февруари 01, 2045</small></a>
-                            </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Сакраменто и
-                                Везенков с нова победа в НБА!</a>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </div>
@@ -119,7 +44,7 @@
 <!-- Main News Slider End -->
 
 
-<!-- Breaking News Start -->
+<!-- Featured News Start -->
 <!-- <div class="container-fluid bg-dark py-3 mb-3">
         <div class="container">
             <div class="row align-items-center bg-dark">
@@ -141,84 +66,33 @@
             </div>
         </div>
     </div> -->
-<!-- Breaking News End -->
+<!-- Featured News End -->
 
 
-<!-- Featured News Slider Start -->
+<!-- Breaking News Slider Start -->
 <div class="container-fluid pt-5 mb-3">
     <div class="container">
         <div class="section-title">
             <h4 class="m-0 text-uppercase font-weight-bold">Водещи новини</h4>
         </div>
         <div class="owl-carousel news-carousel carousel-item-4 position-relative">
+            {{#each breakingNews}}
             <div class="position-relative overflow-hidden" style="height: 300px;">
-                <img class="img-fluid h-100" src="https://i.id24.bg/i/1798136.jpg" style="object-fit: cover;">
+                <img class="img-fluid h-100" src="{{imageUrl}}" style="object-fit: cover;">
                 <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Футбол</a>
-                        <a class="text-white" href=""><small>Окт 17, 2023</small></a>
+                    <div class="mb-1 di-flex">
+                        <div class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2">{{sport}}</div>
+                        <small class="text-white">{{articleDate createdAt}}</small>
                     </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Ливърпул и Реал Мадрид
-                        се размечтаха за Мусиала</a>
+                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold title-ellipsis-3"
+                        href="/articles/{{_id}}/details">{{title}}</a>
                 </div>
             </div>
-            <div class="position-relative overflow-hidden" style="height: 300px;">
-                <img class="img-fluid h-100"
-                    src="https://static.webcafe.bg/uploads/images/69/3569/213569/768x432.jpg?_=1605777573"
-                    style="object-fit: cover;">
-                <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Футбол</a>
-                        <a class="text-white" href=""><small>Окт 17, 2023</small></a>
-                    </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Скандален съдия отново
-                        ще бъде на ВАР за мърсисайдското дерби</a>
-                </div>
-            </div>
-            <div class="position-relative overflow-hidden" style="height: 300px;">
-                <img class="img-fluid h-100"
-                    src="https://m.netinfo.bg/media/images/12101/12101820/960-600-levski-na-final-za-kupata-na-bylgariia.jpg"
-                    style="object-fit: cover;">
-                <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                            href="">Волейбол</a>
-                        <a class="text-white" href=""><small>Окт 17, 2023</small></a>
-                    </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Таланти на Левски
-                        обраха индивидуалните награди за Суперкупата</a>
-                </div>
-            </div>
-            <div class="position-relative overflow-hidden" style="height: 300px;">
-                <img class="img-fluid h-100" src="https://dsport.bg/media/244/sofia_tournimage_16.l.webp"
-                    style="object-fit: cover;">
-                <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Тенис</a>
-                        <a class="text-white" href=""><small>Окт 17, 2023</small></a>
-                    </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Официално: Sofia Open
-                        все пак ще има!</a>
-                </div>
-            </div>
-            <div class="position-relative overflow-hidden" style="height: 300px;">
-                <img class="img-fluid h-100"
-                    src="https://static.bnr.bg/gallery/cr/medium/4f34ad78b1d307bc0c552d58818ea5b8.jpg"
-                    style="object-fit: cover;">
-                <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                            href="">Баскетбол</a>
-                        <a class="text-white" href=""><small>Окт 17, 2023</small></a>
-                    </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Черноморец надви
-                        Рилски спортист, Спартак Плевен с победа над Миньор в НБЛ</a>
-                </div>
-            </div>
+            {{/each}}
         </div>
     </div>
 </div>
-<!-- Featured News Slider End -->
+<!-- Breaking News Slider End -->
 
 
 <!-- News With Sidebar Start -->
@@ -416,55 +290,24 @@
                 <!-- Popular News Start -->
                 <div class="mb-3">
                     <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Из деня </h4>
+                        <h4 class="m-0 text-uppercase font-weight-bold">Още Футбол </h4>
                     </div>
                     <div class="bg-white border border-top-0 p-3">
+                        {{#each fromEighthToTwelfthOfMostViewed}}
                         <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                            <img class="img-fluid small-pics"
-                                src="https://static.flashscore.com/res/image/data/My37q9hl-2etDJpyN.png" alt="">
+                            <img class="img-fluid small-pics" src="{{imageUrl}}" alt="">
                             <div
                                 class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                <div class="mb-2">
-                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                        href="">Футбол</a>
-                                    <a class="text-body" href=""><small>Окт 17, 2023</small></a>
+                                <div class="mb-1 di-flex">
+                                    <div class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2">
+                                        {{sport}}</div>
+                                    <small class="text-body">{{articleDate createdAt}}</small>
                                 </div>
-                                <a class="h6 m-0 text-secondary text-uppercase font-weight-bold title-ellipsis"
-                                    href="">Николо
-                                    Фаджоли ще бъде извън терените за седем месеца</a>
+                                <a class="h6 m-0 text-secondary text-uppercase font-weight-bold title-ellipsis-3"
+                                    href="/articles/{{_id}}/details">{{title}}</a>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                            <img class="img-fluid small-pics"
-                                src="https://m3.netinfo.bg/media/images/50621/50621315/r-960-600-shveciia-fenove.jpg"
-                                alt="">
-                            <div
-                                class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                <div class="mb-2">
-                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                        href="">Футбол</a>
-                                    <a class="text-body" href=""><small>Окт 17, 2023</small></a>
-                                </div>
-                                <a class="h6 m-0 text-secondary text-uppercase font-weight-bold title-ellipsis"
-                                    href="">Феновете на
-                                    Швеция прекараха нощта под полицейска охрана</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                            <img class="img-fluid small-pics"
-                                src="https://bgpadeltour.com/_next/image?url=%2Fpadel-feneration.png&w=384&q=75" alt="">
-                            <div
-                                class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                <div class="mb-2">
-                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                        href="">Падел</a>
-                                    <a class="text-body" href=""><small>Окт 17, 2023</small></a>
-                                </div>
-                                <a class="h6 m-0 text-secondary text-uppercase font-weight-bold title-ellipsis"
-                                    href="">Предпоследният турнир MKabel Padel Open 2O23 ще се проведе в Бургас на
-                                    21.10.23</a>
-                            </div>
-                        </div>
+                        {{/each}}
                     </div>
                 </div>
             </div>
