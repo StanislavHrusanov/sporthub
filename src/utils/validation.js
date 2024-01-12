@@ -19,7 +19,15 @@ exports.validateUser = ({ username, firstName, lastName, password, repass, email
     }
 }
 
-exports.validateArticle = ({ imageUrl, title, text }) => {
+exports.validateArticle = ({ sport, league, imageUrl, title, text }) => {
+    if (!sport) {
+        throw 'Избери спорт!';
+    }
+    if (sport == 'ФУТБОЛ СВЯТ') {
+        if (!league) {
+            throw 'Избери лига!';
+        }
+    }
     if (!imageUrl.match(/https*:\/\/.*/g)) {
         throw 'Добави валиден линк към снимка!';
     }

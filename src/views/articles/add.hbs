@@ -17,6 +17,24 @@
                     <option value="ДРУГИ">ДРУГИ</option>
                 </select>
             </div>
+            {{#if article.league}}
+            <div class="input" id="leagueName">
+                <label>Лига</label>
+                <select name="league" id="league">
+                    <option value="{{article.league}}" hidden="hidden" selected="selected">{{article.league}}</option>
+                    <option value="Англия">Англия</option>
+                    <option value="Испания">Испания</option>
+                    <option value="Италия">Италия</option>
+                    <option value="Германия">Германия</option>
+                    <option value="Франция">Франция</option>
+                    <option value="ШЛ">ШЛ</option>
+                    <option value="Лига Европа">Лига Европа</option>
+                    <option value="Лига на конференциите">Лига на конференциите</option>
+                    <option value="Национални отбори">Национални отбори</option>
+                    <option value="Други">Други</option>
+                </select>
+            </div>
+            {{/if}}
             <div class="input" id="imageUrlBox">
                 <label for="imageUrl">Основна снимка</label>
                 <input type="text" name="imageUrl" id="imageUrl" value="{{article.imageUrl}}">
