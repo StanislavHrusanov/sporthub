@@ -39,4 +39,8 @@ router.get('/404', async (req, res) => {
     res.render('home/404');
 });
 
+router.get('/termsAndConditions', async (req, res) => {
+    res.render('home/termsAndConditions');
+});
+
 module.exports = router;
