@@ -11429,3 +11429,7 @@ h6,
 .not-found-container a {
   color: #ffc107;
 }
+
+.terms-and-conditions {
+  padding: 1rem;
+}
