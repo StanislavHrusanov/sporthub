@@ -47,4 +47,8 @@ router.get('/privicyPolicy', async (req, res) => {
     res.render('home/privicyPolicy');
 });
 
+router.get('/cookiesPolicy', async (req, res) => {
+    res.render('home/cookies');
+});
+
 module.exports = router;
