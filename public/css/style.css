@@ -11430,6 +11430,7 @@ h6,
   color: #ffc107;
 }
 
-.terms-and-conditions {
+.terms-and-conditions,
+.privicy-policy {
   padding: 1rem;
 }

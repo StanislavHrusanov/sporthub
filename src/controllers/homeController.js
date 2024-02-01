@@ -43,4 +43,8 @@ router.get('/termsAndConditions', async (req, res) => {
     res.render('home/termsAndConditions');
 });
 
+router.get('/privicyPolicy', async (req, res) => {
+    res.render('home/privicyPolicy');
+});
+
 module.exports = router;
