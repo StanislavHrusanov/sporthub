@@ -75,4 +75,17 @@
 
 <b>The main part of design is owned by HTML Codex, but I added some completely new pages (Regiser, Login, Add article, Edit Article and all Catalog pages) and edited already existed once (Home, Tapbar, Navbar, Details page). Also I eidted css for my needs!</b>
 
+<h3>Dependencies:</h3>
+
+- <i>express</i>
+- <i>express-handlebars</i>
+- <i>mongoose</i>
+- <i>bcrypt</i>
+- <i>jsonwebtoken</i>
+- <i>cookie-parser</i>
+
+<h2>Here is an admin account</h2>
+
+- <i>Username: Admin, password:111111</i>
+
 <h2>Hosted at: <a href="http://sporthub-i4kh.onrender.com/"/>http://sporthub-i4kh.onrender.com/</h2>
