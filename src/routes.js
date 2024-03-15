@@ -7,4 +7,8 @@ routes.use('/', homeController);
 routes.use('/auth', authController);
 routes.use('/articles', articlesController);
 
+routes.get('*', async (req, res) => {
+    res.render('home/404');
+});
+
 module.exports = routes;
